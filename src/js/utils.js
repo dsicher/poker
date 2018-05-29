@@ -75,7 +75,7 @@ export const isStraight = hand => {
  */
 export const isPair = hand => {
   const values = hand.map(card => card.value);
-  values.sort();
+  values.sort((a, b) => a - b);
   for (let i = 1; i < values.length; i++) {
     if (values[i] === values[i - 1]) {
       return true;
