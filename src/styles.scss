@@ -1,0 +1,133 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #ccffcc;
+  font-family: monospace;
+}
+
+.poker-button {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: translate3d(-50%, -3px, 0);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+  }
+  &.DRAW {
+    background: yellow;
+  }
+  &.DEAL {
+    background: green;
+  }
+}
+
+.poker-hand {
+  height: 300px;
+  width: 850px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  .card {
+    position: relative;
+    height: 300px;
+    width: 150px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0 10px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    .mark {
+      position: absolute;
+      font-size: 2em;
+      &.diamonds,
+      &.hearts {
+        color: red;
+      }
+      &.top {
+        top: 10px;
+        left: 10px;
+      }
+      &.middle {
+        font-size: 8em;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+      &.bottom {
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+    &:nth-child(1) {
+      transform-origin: bottom left;
+      transform: rotate(-10deg) translateY(45px);
+    }
+    &:nth-child(2) {
+      transform-origin: bottom left;
+      transform: rotate(-5deg) translateY(15px);
+    }
+    &:nth-child(4) {
+      transform-origin: bottom right;
+      transform: rotate(5deg) translateY(15px);
+    }
+    &:nth-child(5) {
+      transform-origin: bottom right;
+      transform: rotate(10deg) translateY(45px);
+    }
+    &.draw {
+      cursor: pointer;
+      &:hover {
+        background: #efefef;
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+        &:nth-child(1) {
+          transform: rotate(-8deg) translateY(35px);
+        }
+        &:nth-child(2) {
+          transform: rotate(-4deg) translateY(5px);
+        }
+        &:nth-child(3) {
+          transform: translateY(-10px);
+        }
+        &:nth-child(4) {
+          transform: rotate(4deg) translateY(5px);
+        }
+        &:nth-child(5) {
+          transform: rotate(8deg) translateY(35px);
+        }
+        &.selected {
+          background: rgba(150, 25, 25, 0.5);
+        }
+      }
+    }
+    &.selected {
+      background: rgba(150, 25, 25, 1);
+    }
+  }
+}
+
+.poker-score {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
